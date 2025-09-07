@@ -1,35 +1,47 @@
 "use client";
 
-import { Heart } from "lucide-react";
-import { CldImage } from "next-cloudinary";
+import { Heart, HeartHandshake } from "lucide-react";
+import { CldImage, CldImageProps } from "next-cloudinary";
 import { setAsFavouriteAction } from "./actions";
-import { useTransition } from "react";
+import { useState, useTransition } from "react";
 import { SearchResults } from "./page";
 
-export default function UploadGallery(props: any & { imagedata: SearchResults }) {
+// Error:
+/*
+React does not recognize the `imageData` prop on a DOM element. If you intentionally want it to appear in the DOM as a custom attribute, spell it as lowercase `imagedata` instead. If you accidentally passed it from a parent component, remove it from the DOM element.
+*/
+export default function UploadGallery(
+  props: {
+    imagedata: SearchResults;
+    onUnheart?: (unheartdResource: SearchResults) => void;
+  } & Omit<CldImageProps, "src">
+) {
   const [transition, startTransition] = useTransition();
 
-  const { imagedata } = props;
+  const { imagedata, onUnheart, ...imageProps } = props;
 
-  const isFavourited = imagedata.tags.includes("favourite");
-
+  const [isFavourited, setIsFavourited] = useState(
+    imagedata.tags.includes("favourite")
+  );
 
   return (
     <div className="relative">
-      <CldImage {...props} src={imagedata.public_id} />
+      <CldImage {...imageProps} src={imagedata.public_id} />
       {isFavourited ? (
-        <Heart
+        <HeartHandshake
           onClick={() => {
+            onUnheart?.(imagedata)
+            setIsFavourited(false);
             startTransition(() => {
               setAsFavouriteAction(imagedata.public_id, false);
             });
           }}
-          className="absolute right-2 top-2 hover:text-red-500 cursor-pointer "
+          className="absolute right-2 top-2 text-red-500 cursor-pointer "
         />
-        
       ) : (
         <Heart
           onClick={() => {
+            setIsFavourited(true);
             startTransition(() => {
               setAsFavouriteAction(imagedata.public_id, true);
             });
