@@ -4,7 +4,7 @@ import UploadGallery from "@/components/custom/upload-gallery";
 import { SearchResults } from "./page";
 import ImageGrid from "@/components/custom/image-grid";
 
-export default function GalleryGrid({ images }: { images: SearchResults[] }) {
+export default function AlbumGrid({ images }: { images: SearchResults[] }) {
   return (
       <ImageGrid
         images={images}

@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { SearchResults } from "../gallery/page";
-import UploadGallery from "../gallery/upload-gallery";
 import ImageGrid from "@/components/custom/image-grid";
+import UploadGallery from "@/components/custom/upload-gallery";
 
 export default function FavouritePageList({
   initialResources,

@@ -1,10 +1,11 @@
 "use client";
 
+import { setAsFavouriteAction } from "@/app/gallery/actions";
+import { SearchResults } from "@/app/gallery/page";
 import { Heart, HeartHandshake } from "lucide-react";
 import { CldImage, CldImageProps } from "next-cloudinary";
-import { setAsFavouriteAction } from "./actions";
 import { useState, useTransition } from "react";
-import { SearchResults } from "./page";
+import { ImageMenu } from "./image-menu";
 
 // Error:
 /*
@@ -25,6 +26,7 @@ export default function UploadGallery(
   );
 
   return (
+    <>
     <div className="relative">
       <CldImage {...imageProps} src={imagedata.public_id} />
       {isFavourited ? (
@@ -36,7 +38,7 @@ export default function UploadGallery(
               setAsFavouriteAction(imagedata.public_id, false);
             });
           }}
-          className="absolute right-2 top-2 text-red-500 cursor-pointer "
+          className="absolute left-2 top-2 text-red-500 cursor-pointer "
         />
       ) : (
         <Heart
@@ -46,9 +48,11 @@ export default function UploadGallery(
               setAsFavouriteAction(imagedata.public_id, true);
             });
           }}
-          className="absolute right-2 top-2 "
+          className="absolute left-2 top-2 "
         />
       )}
+    <ImageMenu image={imagedata} />
     </div>
+    </>
   );
 }

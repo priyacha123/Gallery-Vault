@@ -1,4 +1,4 @@
-import { Album, Archive, Heart, Home, Search, Settings } from "lucide-react"
+import { Album, AlbumIcon, Archive, Heart, Home, Settings } from "lucide-react"
 
 import {
   Sidebar,
@@ -21,9 +21,9 @@ const items = [
     icon: Home,
   },
   {
-    title: "Search",
-    url: "/search",
-    icon: Search,
+    title: "Album",
+    url: "/albums",
+    icon: AlbumIcon,
   },
   {
     title: "Gallery",
