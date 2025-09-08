@@ -6,7 +6,7 @@ export async function setAsFavouriteAction(
   publicId: string,
   isFavourite: boolean,
 ) {
-    if (!isFavourite) {
+    if (isFavourite) {
         await v2.uploader.add_tag("favourite", [publicId]);
     }
     else {

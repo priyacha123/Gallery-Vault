@@ -1,8 +1,8 @@
 "use client";
 
 import UploadGallery from "@/components/custom/upload-gallery";
-import { SearchResults } from "./page";
 import ImageGrid from "@/components/custom/image-grid";
+import { SearchResults } from "@/app/gallery/page";
 
 export default function AlbumGrid({ images }: { images: SearchResults[] }) {
   return (

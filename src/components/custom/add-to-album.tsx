@@ -17,7 +17,7 @@ import { useState } from "react";
 import { addImageToAlbum } from "../action";
 
 export function AddToAlbumDialog({ image, onClose }:  {image: SearchResults; onClose: () => void}) {
-  const [albumName, setAlbumName] = useState(" ");
+  const [albumName, setAlbumName] = useState("");
   const [open, setOpen] = useState(false);
 
   return (
@@ -27,8 +27,7 @@ export function AddToAlbumDialog({ image, onClose }:  {image: SearchResults; onC
         onClose()
       }
     }}>
-      <form>
-        <DialogTrigger asChild>
+        <DialogTrigger>
           <Button variant="ghost">
             <Folder className="mr-1 h-4 w-4" />
             <span> Add to Album</span>
@@ -42,12 +41,12 @@ export function AddToAlbumDialog({ image, onClose }:  {image: SearchResults; onC
             </DialogDescription>
           </DialogHeader>
           <div className="grid gap-4 py-4">
-            <div className="grid gap-cols-4 items-center gap-4">
+            <div className="grid grid-cols-4 items-center gap-4">
               <Label htmlFor="name" className="text-right">
                 Album
               </Label>
               <Input
-                onChange={(e) => setAlbumName(e.target.value)}
+                onChange={(e) => setAlbumName(e.currentTarget.value)}
                 id="album-name"
                 name={albumName}
                 defaultValue="Family"
@@ -60,7 +59,7 @@ export function AddToAlbumDialog({ image, onClose }:  {image: SearchResults; onC
               <Button variant="outline">Cancel</Button>
             </DialogClose>
             <Button onClick={async() => {
-                console.log(image);
+              onClose();
                 setOpen(false)
                 await addImageToAlbum(image, albumName)
             }} type="submit">
@@ -68,7 +67,6 @@ export function AddToAlbumDialog({ image, onClose }:  {image: SearchResults; onC
             </Button>
           </DialogFooter>
         </DialogContent>
-      </form>
     </Dialog>
   );
 }
