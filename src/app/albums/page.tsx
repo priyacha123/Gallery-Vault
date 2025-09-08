@@ -11,9 +11,6 @@ export default async function AlbumPage() {
     folders: Folders[];
   };
 
-  console.log(folders);
-  
-    
   return (
     <section>
       <div className="flex justify-between pl-1 pr-4">

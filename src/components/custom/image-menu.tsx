@@ -18,24 +18,27 @@ export function ImageMenu({ image }:  {image: SearchResults}) {
   return (
     <div className="absolute top-2 right-2">
     <DropdownMenu open={open} onOpenChange={setOpen}>
-      <DropdownMenuTrigger asChild>
-        <Button variant="secondary" className="w-8 h-8 p-0">
+      <DropdownMenuTrigger>
+        <Button asChild variant="secondary" className="w-8 h-8 p-0">
             <Menu />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-40" >
-        <DropdownMenuItem asChild>
+        <DropdownMenuItem asChild >
           <AddToAlbumDialog image={image} onClose={() => setOpen(false)} />
         </DropdownMenuItem>
-        <DropdownMenuItem asChild>
+        <DropdownMenuItem>
            <Button
               className="cursor-pointer flex justify-start pl-4"
               variant="ghost"
+              asChild
             >
+              <div>
         <Pencil className="ml-3 mr-2 w-8 h-8" />
         <Link href={`/edit?publicId=${encodeURIComponent(image.public_id)}`}>
         Edit
         </Link> 
+              </div>
             </Button>
         </DropdownMenuItem>
       </DropdownMenuContent>

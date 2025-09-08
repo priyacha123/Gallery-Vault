@@ -6,12 +6,10 @@ import { Label } from "@/components/ui/label";
 import { CldImage } from "next-cloudinary";
 import { useState } from "react";
 
-export default function EditPage({
-  searchParams: { publicId },
-}: {
-  searchParams: { publicId: string };
-}) {
-  console.log(publicId);
+export default function EditPage(props: { searchParams: { publicId: string } }) {
+  const { searchParams } = props;
+  const { publicId } = searchParams;
+
 
   const [transformation, setTransformation] = useState<
     undefined | "generative_fill" | "removeBackground" | "enhance" | "gravity" | "replaceBackground" | "zoom" | "blur" | "grayscale"
