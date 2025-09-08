@@ -1,9 +1,12 @@
 "use server"
 
+import { Folders } from "@/app/albums/page";
 import { SearchResults } from "@/app/gallery/page";
 import { v2 } from "cloudinary";
 
-export async function addImageToAlbum(image: SearchResults, album: string) {
+export type ImageResource = SearchResults["resources"][number]; 
+
+export async function addImageToAlbum(image: ImageResource, album: string) {
     await v2.api.create_folder(album);
 
     let parts = image.public_id.split("/");
@@ -21,4 +24,12 @@ export async function addImageToAlbum(image: SearchResults, album: string) {
     //     public_id: image.public_id,
     //     overwrite: true
     // });
+}
+
+export async function cloudinaryFolders() {
+      const { folders } = (await v2.api.root_folders()) as {
+        folders: Folders[];
+      };
+
+      return folders;
 }

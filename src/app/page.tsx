@@ -9,20 +9,19 @@ export type UploadResult = {
     public_id: string;
   }
   event: "success";
-};
-
+}
 
 export default function Home() {
-  const [imageid, setImageid] = useState("");
+  const [imageid, setImageId] = useState("");
 
   return (
     <>
       <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <UploadGallery
         onUpload={(result: UploadResult) => {
-          setImageid(result.info.public_id);
+          setImageId(result.info.public_id);
         }}
-        uploadPreset="giomsr4s"
+        uploadPreset="fe-gallery"
       />
       {imageid && (
         <CldImage

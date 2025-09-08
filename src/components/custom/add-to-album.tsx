@@ -1,4 +1,3 @@
-import { SearchResults } from "@/app/gallery/page";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -14,9 +13,9 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Folder } from "lucide-react";
 import { useState } from "react";
-import { addImageToAlbum } from "../action";
+import { addImageToAlbum, ImageResource } from "../action";
 
-export function AddToAlbumDialog({ image, onClose }:  {image: SearchResults; onClose: () => void}) {
+export function AddToAlbumDialog({ image, onClose }:  {image: ImageResource; onClose: () => void}) {
   const [albumName, setAlbumName] = useState("");
   const [open, setOpen] = useState(false);
 

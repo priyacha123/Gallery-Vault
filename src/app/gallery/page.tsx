@@ -1,10 +1,15 @@
-import UploadButton from "./upload-button";
 import { v2 as cloudinary } from "cloudinary";
+import { ImageResource } from "@/components/action";
+import UploadButton from "./upload-button";
 import GalleryGrid from "./gallery-grid";
 
 export type SearchResults = {
     public_id: string;
     tags: string[];
+}
+
+export type CloudinaryResource = {
+  resources: ImageResource[];
 }
 
 export default async function GalleryPage() {
@@ -13,7 +18,7 @@ export default async function GalleryPage() {
     .sort_by("created_at", "desc")
     .with_field("tags")
     .max_results(30)
-    .execute() as {resources: SearchResults[]};
+    .execute() as CloudinaryResource;
     
   return (
     <section>
