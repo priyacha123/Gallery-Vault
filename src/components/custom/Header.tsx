@@ -1,8 +1,5 @@
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@/components/ui/avatar"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { ModeToggle } from "../ui/theme-toggle";
 
 export default function Header() {
   return (
@@ -17,17 +14,17 @@ export default function Header() {
 }
 
 export function AvatarNav() {
-return (
+  return (
     <>
-     <div className="flex flex-row flex-wrap items-center gap-12">
-      <Avatar>
-        <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-        <AvatarFallback>CN</AvatarFallback>
-      </Avatar>
-    </div>
+      <div className="flex flex-row flex-wrap items-center gap-12">
+        <Avatar>
+          <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
+          <AvatarFallback>CN</AvatarFallback>
+        </Avatar>
+      </div>
     </>
-)
-} 
+  );
+}
 
 export function HeaderAvatar() {
   return (
@@ -36,8 +33,9 @@ export function HeaderAvatar() {
         <div className="title">
           <h1 className="font-bold text-xl">Gallery Vault</h1>
         </div>
-        <div className="avatar">
-            <AvatarNav />
+        <div className="avatar flex justify-between gap-4 ">
+          <ModeToggle />
+          <AvatarNav />
         </div>
       </div>
     </>

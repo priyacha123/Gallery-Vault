@@ -22,14 +22,15 @@ export function SearchForm({ initialSearch }: { initialSearch: string }) {
         router.refresh();
       }}
     >
-      <Label htmlFor="tag-name" className="text-right">
+      <div className="flex justify-center items-center gap-2 m-4 ml-10 mr-10 p-4">
+      <Label htmlFor="tag-name" className=" text-right">
         Search By Tag
       </Label>
-      <div className="flex gap-2">
         <Input
           onChange={(e) => setTagName(e.currentTarget.value)}
           id="tag-name"
           value={tagName ?? ""}
+          className="sm:w-150 md:w-100"
         />
         <Button type="submit">Search</Button>
       </div>
