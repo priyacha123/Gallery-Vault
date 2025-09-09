@@ -11,14 +11,14 @@ import Link from "next/link"
 import { Button } from "../ui/button"
 import { useState } from "react"
 
-export function ImageMenu({ image }:  {image: SearchResults}) {
+export function ImageMenu({ image }:  { image: SearchResults }) {
 
   const [open, setOpen] = useState(false);
 
   return (
     <div className="absolute top-2 right-2">
     <DropdownMenu open={open} onOpenChange={setOpen}>
-      <DropdownMenuTrigger>
+      <DropdownMenuTrigger asChild>
         <Button asChild variant="secondary" className="w-8 h-8 p-0">
             <Menu />
         </Button>

@@ -17,10 +17,10 @@ export default async function AlbumPage() {
         <h1 className="text-3xl font-bold">Albums</h1>
         </div>
 
-        <div className="grid grid-cols-3 gap-4">
-        {folders.map((folder) => {
-          return <AlbumCard key={folder.path} folder={folder} />
-        })}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        {folders.map((folder) => (
+          <AlbumCard key={folder.path} folder={folder} />
+        ))}
         </div>
 
 

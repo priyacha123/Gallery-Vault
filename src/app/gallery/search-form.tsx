@@ -29,7 +29,7 @@ export function SearchForm({ initialSearch }: { initialSearch: string }) {
         <Input
           onChange={(e) => setTagName(e.currentTarget.value)}
           id="tag-name"
-          value={tagName}
+          value={tagName ?? ""}
         />
         <Button type="submit">Search</Button>
       </div>

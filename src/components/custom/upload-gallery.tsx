@@ -38,7 +38,7 @@ export default function UploadGallery(
               setAsFavouriteAction(imagedata.public_id, false);
             });
           }}
-          className="absolute left-2 top-2 text-red-500 cursor-pointer "
+          className="absolute left-2 top-2 text-red-500 cursor-pointer"
         />
       ) : (
         <Heart
@@ -48,7 +48,7 @@ export default function UploadGallery(
               setAsFavouriteAction(imagedata.public_id, true);
             });
           }}
-          className="absolute left-2 top-2 "
+          className="absolute left-2 top-2 cursor-pointer"
         />
       )}
     <ImageMenu image={imagedata} />

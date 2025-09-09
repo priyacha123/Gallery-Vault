@@ -4,10 +4,10 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { CldImage } from "next-cloudinary";
-import { useState } from "react";
+import { use, useState } from "react";
 
-export default function EditPage(props: { searchParams: { publicId: string } }) {
-  const { searchParams } = props;
+export default function EditPage(props: { searchParams: Promise<{ publicId: string }> }) {
+  const searchParams = use(props.searchParams);
   const { publicId } = searchParams;
 
 

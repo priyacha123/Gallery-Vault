@@ -11,7 +11,7 @@ export async function addImageToAlbum(image: SearchResults, album: string) {
         parts = parts.slice(1); 
     }
 
-    const publicId = parts.join("/");
+      const publicId = parts.join("/");
 
     await v2.uploader.rename(image.public_id, `${album}/${publicId}`, {overwrite: true}
     )
