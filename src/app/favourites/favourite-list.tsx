@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { SearchResults } from "../gallery/page";
 import ImageGrid from "@/components/custom/image-grid";
 import UploadGallery from "@/components/custom/upload-gallery";

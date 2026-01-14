@@ -10,12 +10,14 @@ export type SearchResults = {
 }
 
 export default async function GalleryPage({
-  searchParams: { search },
+  searchParams,
 }: {
-  searchParams: {
-    search: string;
+  searchParams?: {
+    search?: string;
   };
 }) {
+   const search = searchParams?.search ?? "";
+   
   const result = await cloudinary.search
     .expression(`resource_type:image${search ? ` AND tags=${search}` : ""}`)
     .sort_by("created_at", "desc")
