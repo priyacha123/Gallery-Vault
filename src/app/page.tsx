@@ -32,6 +32,7 @@ export default function Home() {
           alt="Description of my image"
         />
       )}
+      
       </main>
     </>
   );
