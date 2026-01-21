@@ -20,7 +20,7 @@ export default function EditPage(props: { searchParams: Promise<{ publicId: stri
   const [prompt, setPrompt] = useState("");
   return (
     <>
-      <section>
+      <section className="w-full">
         <div className="flex justify-between">
           <h1 className="text-4xl font-bold m-4">Edit {publicId}</h1>
           </div>

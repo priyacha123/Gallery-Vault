@@ -10,7 +10,7 @@ export default function UploadButton() {
 
   return (
     <Button asChild>
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 px-4 border border-gray-300 rounded-md cursor-pointer hover:bg-gray-100">
 
         <Upload />
         <CldUploadButton

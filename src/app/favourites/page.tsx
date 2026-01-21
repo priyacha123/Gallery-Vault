@@ -12,7 +12,7 @@ export default async function FavouritePage() {
     .execute() as {resources: SearchResults[] };
 
   return (
-    <section>
+    <section className="w-full">
       <ForceRefresh />
 
       <div className="flex justify-between pl-1 pr-4">

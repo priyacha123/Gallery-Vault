@@ -12,7 +12,7 @@ export default async function AlbumPage() {
   };
 
   return (
-    <section>
+    <section className="w-full">
       <div className="flex justify-between pl-1 pr-4">
         <h1 className="text-3xl font-bold">Albums</h1>
         </div>

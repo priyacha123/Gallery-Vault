@@ -1,8 +1,9 @@
 "use client";
 
-import UploadGallery from "@/components/custom/upload-gallery";
-import { CldImage } from "next-cloudinary";
-import { useState } from "react";
+import { WebcamPixelGridDemo } from "@/components/custom/home-webGrid";
+// import UploadGallery from "@/components/custom/upload-gallery";
+// import { CldImage } from "next-cloudinary";
+// import { useState } from "react";
 
 export type UploadResult = {
   info: {
@@ -12,12 +13,13 @@ export type UploadResult = {
 }
 
 export default function Home() {
-  const [imageid, setImageId] = useState("");
+  // const [imageid, setImageId] = useState("");
 
   return (
     <>
-      <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <UploadGallery
+      {/* <main className="flex min-h-screen flex-col items-center justify-between p-24"> */}
+        <main>
+      {/* <UploadGallery
         onUpload={(result: UploadResult) => {
           setImageId(result.info.public_id);
         }}
@@ -31,8 +33,8 @@ export default function Home() {
           sizes="100vw"
           alt="Description of my image"
         />
-      )}
-      
+      )} */}
+      <WebcamPixelGridDemo />
       </main>
     </>
   );

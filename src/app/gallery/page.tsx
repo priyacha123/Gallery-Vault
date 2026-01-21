@@ -26,7 +26,7 @@ export default async function GalleryPage({
     .execute() as {resources: SearchResults[]};
     
   return (
-    <section>
+    <section className="w-full">
       <ForceRefresh />
       <div className="flex justify-between pl-1 pr-4">
         <h1 className="text-3xl font-bold">Gallery</h1>
