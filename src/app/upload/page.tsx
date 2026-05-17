@@ -1,3 +1,5 @@
+"use client"
+
 import { v2 as cloudinary } from "cloudinary";
 // import UploadButton from "./upload-button";
 // import GalleryGrid from "./gallery-grid";
@@ -5,6 +7,7 @@ import { v2 as cloudinary } from "cloudinary";
 import ForceRefresh from "@/components/force-refresh";
 import UploadButton from "../gallery/upload-button";
 import { SearchForm } from "../gallery/search-form";
+import { useRouter } from "next/navigation";
 
 export type SearchResults = {
     public_id: string;
@@ -18,6 +21,12 @@ export default async function UploadPage({
     search?: string;
   };
 }) {
+  const router = useRouter();
+
+  const handleRedirect = () => {
+    router.push('/gallery');
+    router.refresh(); 
+  }
   //  const search = searchParams?.search ?? "";
    
   // const result = await cloudinary.search
@@ -34,7 +43,7 @@ export default async function UploadPage({
         <h1 className="text-3xl font-bold">Upload</h1>
         </div>
         <div className="flex items-center justify-center m-20 h-50 border-2 border-dashed border-gray-300 rounded-lg ">
-        <UploadButton />
+        <UploadButton onUpload={handleRedirect}/>
         </div>
 
         {/* <SearchForm initialSearch={search} /> */}
